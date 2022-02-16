@@ -31,7 +31,7 @@ output [3:0]s
 wire overflow;
 ALU4bit ALUbonus(.a(a[3:0]),.b(b[3:0]),.operator(1),.output(s[3:0]),.overflow(overflow));
 
-
+mux4bitOut1bitIn SEL(.a(a[3:0]),.b(b[3:0]),.s(s),.overflow(overflow));
 
 endmodule
 
