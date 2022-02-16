@@ -7,7 +7,7 @@ reg operator;
 wire [3:0] res;
 wire overflow;
 
-ALU4bit ALUTB(
+ALU4bit A(
 .a(a),
 .b(b),
 .operator(operator),

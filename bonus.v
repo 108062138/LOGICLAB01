@@ -24,14 +24,30 @@ assign s[3] = A[3] | B[3];
 endmodule
 
 module signCmp (
-input [3:0]a,
-input [3:0]b,
-output [3:0]s
+input wire [3:0]a,
+input wire [3:0]b,
+output reg [3:0]s
 );
 wire overflow;
-ALU4bit ALUbonus(.a(a[3:0]),.b(b[3:0]),.operator(1),.output(s[3:0]),.overflow(overflow));
+wire [3:0] diff;
+ALU4bit ALUbonus(.a(a[3:0]),.b(b[3:0]),.operator(1),.output(diff[3:0]),.overflow(overflow));
 
-mux4bitOut1bitIn SEL(.a(a[3:0]),.b(b[3:0]),.s(s),.overflow(overflow));
+//mux4bitOut1bitIn SEL(.a(a[3:0]),.b(b[3:0]),.s(s),.overflow(overflow));
+always @(*) begin
+   if (overflow===0) begin
+       if(diff[3]===1)begin
+           s = b;
+       end else begin
+           s = a;
+       end
+   end else begin
+       if (diff[3]===1) begin
+           s = a;
+       end else begin
+           s =b;
+       end
+   end
+end
 
 endmodule
 
