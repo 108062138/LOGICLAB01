@@ -12,10 +12,11 @@ binaryToGray BINARYTOGRAY(
 .x(res[2]),
 .y(res[1]),
 .z(res[0])
-;
+);
 initial begin
     for (cnt = 4'b0000; cnt <=4'b1111; cnt = cnt + 4'b0001) begin
         #5
+        $display("current loop=%b", cnt);
     end
 end
 
