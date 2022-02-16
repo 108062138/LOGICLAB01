@@ -17,10 +17,11 @@ ALU4bit ALUTB(
 
 initial begin
     operator = 0;
-    b = 4'b0011;
     for (a = 4'b0000; a <4'b1111; a = a + 4'b0001) begin
-        #5
-        $display("current loop=%d", a);
+        for (b = 4'b0000; b < 4'b1111; b = b + 4'b0001)begin
+           #5
+            $display("current loop=%d %d", a,b); 
+        end
     end
 end
 
