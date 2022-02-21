@@ -8,7 +8,7 @@ output [3:0]s,
 output overflow
 );
 wire [4:0] C;
-FullAdder FA0(.x(a[0]), .y(operator ^ b[0]),.cin(operator), .A(s[0]) ,.cout(C[1]));
+FullAdder FA0(.x(a[0]), .y(operator ^ b[0]),.cin( operator), .A(s[0]) ,.cout(C[1]));
 FullAdder FA1(.x(a[1]), .y(operator ^ b[1]),.cin(     C[1]), .A(s[1]) ,.cout(C[2]));
 FullAdder FA2(.x(a[2]), .y(operator ^ b[2]),.cin(     C[2]), .A(s[2]) ,.cout(C[3]));
 FullAdder FA3(.x(a[3]), .y(operator ^ b[3]),.cin(     C[3]), .A(s[3]) ,.cout(C[4]));

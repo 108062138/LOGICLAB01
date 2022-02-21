@@ -1,4 +1,5 @@
 `timescale 1ns/1ps
+`include "ALU4bit.v"
 
 module TB;
 reg [3:0] a;
@@ -16,6 +17,11 @@ ALU4bit ALUTB(
 );
 
 initial begin
+    $dumpfile("ALU4bitTB.vcd");
+    $dumpvars(0, TB);
+    
+    $display("=====================Simulation begin======================");
+
     operator = 0;
     for (a = 4'b0000; a <4'b1111; a = a + 4'b0001) begin
         for (b = 4'b0000; b < 4'b1111; b = b + 4'b0001)begin
@@ -23,6 +29,8 @@ initial begin
             $display("current loop=%d %d", a,b); 
         end
     end
+
+    $display("=====================Simulation finish=====================");
 end
 
 endmodule
